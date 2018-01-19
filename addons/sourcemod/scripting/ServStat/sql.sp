@@ -65,3 +65,20 @@ public void addUser(int client) { // Adds a user to the servstat_players table
 		PrintToServer("Database error: %s", err);
 	}
 }
+
+public int getTotalPlayers() {
+	char sQuery[255];
+	
+	Format(sQuery, sizeof(sQuery), "SELECT COUNT (*) FROM servstat_players");
+	
+	DBResultSet SQL = SQL_Query(gh_Db, sQuery);
+	
+	if(SQL != null) {
+		if(SQL_FetchRow(SQL)) {
+			int i = SQL_FetchInt(SQL, 0);
+			return i;
+		}
+	}
+	
+	return -1;
+}

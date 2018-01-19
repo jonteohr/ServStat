@@ -23,7 +23,7 @@
 #define PLUGIN_VERSION "1.0"
 
 // Strings
-char g_sPrefix[] = "{gold}[ServStat]{blue} ";
+char g_sPrefix[] = "{gold}[ServStat]{blue}";
 
 // Handles
 Database gh_Db;

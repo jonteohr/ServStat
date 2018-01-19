@@ -20,7 +20,37 @@ public Action Command_Core(int client, int args) {
 		return Plugin_Handled;
 	}
 	
+	if(args < 1) {
+		CPrintToChat(client, "%s Type", g_sPrefix);
+		CPrintToChat(client, "%s {green}!servstat help", g_sPrefix);
+		CPrintToChat(client, "%s for syntax guidance", g_sPrefix);
+	} else if(args >= 1) {
+		char arg[64]; // First argument
+		GetCmdArg(1, arg, sizeof(arg));
+		
+		if(StrEqual(arg, "help", false)) {
+			CPrintToChat(client, "%s ----------------------------------------------", g_sPrefix);
+			CPrintToChat(client, "%s Available commands:", g_sPrefix);
+			CPrintToChat(client, "%s {green}!servstat month", g_sPrefix);
+			CPrintToChat(client, "%s    Retrieves player statistics from the last month");
+			CPrintToChat(client, "%s {green}!servstat total", g_sPrefix);
+			CPrintToChat(client, "%s    Retrieves player statistics from when the plugin started tracking", g_sPrefix);
+			CPrintToChat(client, "%s ----------------------------------------------", g_sPrefix);
+		}
+		
+		if(StrEqual(arg, "monthly", false)) {
+			
+		}
+		
+		if(StrEqual(arg, "total", false)) {
+			int total = getTotalPlayers();
+			
+			CPrintToChat(client, "%s There's been a total of %d players since the tracking started!", g_sPrefix, total);
+		}
+		
+	}
 	
 	
-	return Plugin_Continue;
+	
+	return Plugin_Handled;
 }

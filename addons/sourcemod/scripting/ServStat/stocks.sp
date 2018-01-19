@@ -20,7 +20,7 @@ stock bool IsValidClient(int client, bool bAllowBots = false, bool bAllowDead = 
 	return true;
 }
 
-stock bool IsClientAdmin(int client) {
+public bool IsClientAdmin(int client) {
 	char admflag[32];
 	GetConVarString(gc_sAdmFlag, admflag, sizeof(admflag));
 	
