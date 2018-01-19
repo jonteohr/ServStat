@@ -41,7 +41,7 @@ public Action Command_Core(int client, int args) {
 		if(StrEqual(arg, "monthly", false)) {
 			int total = getLast31Days();
 			
-			CPrintToChat(client, "%s %d", g_sPrefix, total);
+			CPrintToChat(client, "%s There's been a total of %d players the last 31 days.", g_sPrefix, total);
 		}
 		
 		if(StrEqual(arg, "total", false)) {
@@ -51,8 +51,6 @@ public Action Command_Core(int client, int args) {
 		}
 		
 	}
-	
-	
 	
 	return Plugin_Handled;
 }
