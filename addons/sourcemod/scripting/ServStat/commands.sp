@@ -32,14 +32,16 @@ public Action Command_Core(int client, int args) {
 			CPrintToChat(client, "%s ----------------------------------------------", g_sPrefix);
 			CPrintToChat(client, "%s Available commands:", g_sPrefix);
 			CPrintToChat(client, "%s {green}!servstat month", g_sPrefix);
-			CPrintToChat(client, "%s    Retrieves player statistics from the last month");
+			CPrintToChat(client, "%s    Retrieves player statistics from the last 31 days");
 			CPrintToChat(client, "%s {green}!servstat total", g_sPrefix);
 			CPrintToChat(client, "%s    Retrieves player statistics from when the plugin started tracking", g_sPrefix);
 			CPrintToChat(client, "%s ----------------------------------------------", g_sPrefix);
 		}
 		
 		if(StrEqual(arg, "monthly", false)) {
+			int total = getLast31Days();
 			
+			CPrintToChat(client, "%s %d", g_sPrefix, total);
 		}
 		
 		if(StrEqual(arg, "total", false)) {

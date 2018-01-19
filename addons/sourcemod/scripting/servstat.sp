@@ -66,7 +66,10 @@ public void OnPluginStart() {
 }
 
 public void OnClientPutInServer(int client) {
-	if(IsValidClient(client))
+	if(IsValidClient(client)) {
 		if(!userExists(client)) // If a connecting client is not registered, then register!
 			addUser(client);
+		else
+			updateUser(client);
+	}
 }
